@@ -1,0 +1,9 @@
+<h1>Mom's nagging list</h1>
+
+<ol>
+    <% @to_do.each_with_index do |item, index| %>
+      <li>
+         <%= link_to(@to_do[index], "/tasks/#{index+1}", :alt => " Task #{index}") %>
+     </li>
+    <% end %>
+</ol>
