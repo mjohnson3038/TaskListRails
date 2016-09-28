@@ -1,3 +1,9 @@
 <h1> Please print anything! </h1>
 
 <p> <%= @full_to_do[@index.to_i] %></p>
+<ul>
+  <li>Task: <%= @full_to_do[@index.to_i][:name]%></li>
+  <li>description: <%= @full_to_do[@index.to_i][:description]%></li>
+  <li>Status: <%= @full_to_do[@index.to_i][:status]%></li>
+  <li>Completion: <%= @full_to_do[@index.to_i][:date]%></li>
+</ul>

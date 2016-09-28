@@ -1,0 +1,24 @@
+<h1>Create a new task</h1>
+
+<form action="/tasks" method="post" accept-charset="utf-8">
+
+  <label for="item_name">Item Name:</label>
+  <input type="text" name="item_name" value="" id="item_name">
+
+  <label for="item_description">Item Description:</label>
+  <textarea rows="4" cols="50">
+  </textarea>
+
+  <label for=status>Status:</label>
+  <select>
+    <option value="Not Started">Not Started</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Completed">Completed</option>
+  </select>
+
+  <label for=date_due>Date Due:</label>
+  <input type="date" name="date_due">
+
+  <input type="submit" value="Submit">
+
+</form>
