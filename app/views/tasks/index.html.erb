@@ -4,6 +4,7 @@
   <% @list.each do |s| %>
     <li>
       <%= link_to "#{s.item}", task_path(s) %>
+      <%= link_to "Edit", edit_task_path(s) %>
     </li>
   <% end %>
 </ul>

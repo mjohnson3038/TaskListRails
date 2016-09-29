@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get '/tasks' => 'tasks#index'
   get '/tasks/new', to: 'tasks#new', as: 'new_task'
   post 'tasks/' => 'tasks#create'
-  get 'tasks/:id/edit' => 'tasks#edit'
+  get 'tasks/:id/edit', to: 'tasks#edit', as: 'edit_task'
+  patch 'tasks/:id' => 'tasks#update'
   get '/tasks/:id', to: 'tasks#show', as: 'task'
 
 

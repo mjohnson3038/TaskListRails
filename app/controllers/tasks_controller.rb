@@ -27,6 +27,15 @@ class TasksController < ApplicationController
     @list = Task.find(params[:id])
   end
 
+  def update
+    @list = Task.find(params[:id])
+    if @list.update(task_params)
+      redirect_to tasks_path
+    else
+      render :edit
+    end 
+  end
+
   private
 
   def task_params

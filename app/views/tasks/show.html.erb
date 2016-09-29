@@ -7,4 +7,7 @@
   <% if @list.is_completed == true %>
     <li>Date completed: <%= @list.date_completed%></li>
   <% end  %>
+
 </ul>
+
+<%= link_to "Edit", edit_task_path %>
