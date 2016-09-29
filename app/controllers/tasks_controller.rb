@@ -1,35 +1,36 @@
 class TasksController < ApplicationController
   def index
-    @to_do =[
-      "Windows",
-      "Cleats",
-      "Mushrooms",
-      "Sweaters",
-      "Bon Bons",
-    ]
+    @list = Task.all
+
 
   end
 
   def new
-
+    @list = Task.new
   end
 
   def show
-    @full_to_do =
-      [
-      @Windows = {name: "Windows", description: "Wash the windows", status: "Completed", date: Time.now.strftime("%m/%d/%Y %H:%M") },
-      @Cleats = {name: "Cleats", description: "Clean the cleats", status: "In Progress", date: Time.now.strftime("%m/%d/%Y %H:%M") },
-      @Mushrooms = {name: "Mushrooms", description: "Mush the mushrooms", status: "To Begin", date: Time.now.strftime("%m/%d/%Y %H:%M") },
-      @Sweaters = {name: "Sweaters", description: "Sweat in the sweaters", status: "Completed", date: Time.now.strftime("%m/%d/%Y %H:%M") },
-      @Bon_Bon = {name: "Bon Bon", description: "Brush the Bon Bons", status: "In Progress", date: Time.now.strftime("%m/%d/%Y %H:%M") },
-    ]
-
-    @index = params[:id]
+    @list = Task.find(params[:id])
   end
 
   def create
-
-    redirect_to '/tasks'
-
+    @list = Task.new(task_params)
+    @list.save
+    if @list.save
+      redirect_to tasks_path
+    else
+      render :new
+    end
   end
+
+  def edit
+    @list = Task.find(params[:id])
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:item, :description, :is_completed)
+  end
+
 end

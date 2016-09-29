@@ -1,9 +1,10 @@
-<h1> Please print anything! </h1>
+<h1><%= @list.item%></h1>
 
-<p> <%= @full_to_do[@index.to_i] %></p>
 <ul>
-  <li>Task: <%= @full_to_do[@index.to_i][:name]%></li>
-  <li>description: <%= @full_to_do[@index.to_i][:description]%></li>
-  <li>Status: <%= @full_to_do[@index.to_i][:status]%></li>
-  <li>Completion: <%= @full_to_do[@index.to_i][:date]%></li>
+  <li>Task: <%= @list.item%></li>
+  <li>Description: <%= @list.description%></li>
+  <li>Completed? <%= @list.is_completed%></li>
+  <% if @list.is_completed == true %>
+    <li>Date completed: <%= @list.date_completed%></li>
+  <% end  %>
 </ul>
