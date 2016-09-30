@@ -29,7 +29,11 @@ class TasksController < ApplicationController
 
   def update
     @list = Task.find(params[:id])
+
     if @list.update(task_params)
+      if @list.is_completed = false
+        @list.completed_date = date.now
+      end
       redirect_to tasks_path
     else
       render :edit
@@ -44,7 +48,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:item, :description, :is_completed)
+    params.require(:task).permit(:item, :description, :is_completed, :date_completed)
   end
 
 end

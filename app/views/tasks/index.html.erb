@@ -4,11 +4,16 @@
 <ul>
   <% @list.each do |s| %>
     <% if s.is_completed == false %>
-    <li>
-      <%= link_to "#{s.item}", task_path(s) %>
-      <%= link_to "Edit", edit_task_path(s) %>
-      <%= link_to "DESTROY!!", task_path(s),  method: :delete , data: {confirm: "Are you really sure?"}%>
-    </li>
+      <li>
+        <%= link_to "#{s.item}", task_path(s) %>
+        <%= link_to "Edit", edit_task_path(s) %>
+        <%= link_to "DESTROY!!", task_path(s),  method: :delete , data: {confirm: "Are you really sure?"}%>
+        <%= form_for s do |f|%>
+          <%= f.hidden_field :is_completed, :value => true %>
+          <%= f.hidden_field :date_completed, :value => Time.now %>
+          <%= f.submit "Task is complete!" %>
+        <% end %>
+      </li>
     <%end%>
   <% end %>
 </ul>
