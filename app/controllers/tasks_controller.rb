@@ -33,7 +33,12 @@ class TasksController < ApplicationController
       redirect_to tasks_path
     else
       render :edit
-    end 
+    end
+  end
+
+  def destroy
+    @list = Task.find(params[:id]).destroy
+    redirect_to tasks_path
   end
 
   private

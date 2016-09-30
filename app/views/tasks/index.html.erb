@@ -1,11 +1,28 @@
 <h1>Mom's nagging list</h1>
 
+<h3>To Do List</h3>
 <ul>
   <% @list.each do |s| %>
+    <% if s.is_completed == false %>
     <li>
       <%= link_to "#{s.item}", task_path(s) %>
       <%= link_to "Edit", edit_task_path(s) %>
+      <%= link_to "DESTROY!!", task_path(s),  method: :delete , data: {confirm: "Are you really sure?"}%>
     </li>
+    <%end%>
+  <% end %>
+</ul>
+
+<h3>Completed Tasks</h3>
+<ul>
+  <% @list.each do |s| %>
+    <% if s.is_completed == true %>
+    <li>
+      <%= link_to "#{s.item}", task_path(s) %>
+      <%= link_to "Edit", edit_task_path(s) %>
+      <%= link_to "DESTROY!!", task_path(s),  method: :delete , data: {confirm: "Are you really sure?"}%>
+    </li>
+    <%end%>
   <% end %>
 </ul>
 
