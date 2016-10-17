@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/tasks/:id', to: 'tasks#show', as: 'task'
   delete '/tasks/:id' => 'tasks#destroy'
 
+  get 'auth/:provider/callback' => 'sessions#create'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
