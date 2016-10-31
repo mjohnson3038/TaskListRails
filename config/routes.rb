@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'tasks#index'
+  root 'mains#index'
   get '/tasks' => 'tasks#index'
   get '/tasks/new', to: 'tasks#new', as: 'new_task'
   post 'tasks/' => 'tasks#create'
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/tasks/:id' => 'tasks#destroy'
 
   get "/auth/:provider/callback" =>  "sessions#create"
+
 
   get "/sessions/login_failure", to: "sessions#login_failure", as: "login_failure"
 

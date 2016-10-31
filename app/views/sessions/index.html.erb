@@ -1,3 +1,5 @@
 <h1>Welcome, <%= @user.name %></h1>
 
 <%= button_to "log out", sessions_path, method: :delete%>
+
+<p>View my <%= link_to "Tasks", tasks_path %></p>

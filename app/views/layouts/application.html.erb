@@ -8,6 +8,16 @@
 </head>
 <body>
 
+  <section>
+    <nav>
+      <% if session[:user_id] == nil %>
+        <%= link_to "Log In/Sign Up", "/auth/github" %>
+      <% else %>
+        <%= link_to "Log Out", sessions_path, method: :delete %>
+      <% end %>
+    </nav>
+  </section>
+
 <%= yield %>
 
 </body>
